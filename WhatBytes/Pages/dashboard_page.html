@@ -1,0 +1,80 @@
+<div class="dashboard-container">
+    <h1>Hi, {{ username }}</h1>
+    <div class="dashboard-links">
+        <a href="{% url 'profile' %}">Profile Page</a>
+        <a href="{% url 'change_password' %}">Change Password</a>
+    </div>
+
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">Logout</button>
+    </form>
+</div>
+
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.dashboard-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Greeting text */
+.dashboard-container h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Links */
+.dashboard-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.dashboard-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.dashboard-links a:hover {
+    color: #0056b3;
+}
+
+/* Logout button */
+.logout-button {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #d93636;
+}
+</style>
